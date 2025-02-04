@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko yummie_yAy</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #E195AB;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+        }
+
+        header button {
+            background-color: white;
+            color: #E195AB;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        header button:hover {
+            background-color: #f3f4f6;
+        }
+
+        .hero {
+            background: url(bg.jpg) center no-repeat;
+            height: 500px;
+            background-size: cover;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .hero button {
+            background-color: #fc0fc0;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .hero button:hover {
+            background-color: #de3163;
+        }
+
+        .products {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .products h3 {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .product {
+            background-color: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: box-shadow 0.3s;
+        }
+
+        .product img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .product h4 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .product p {
+            color: #806b79;
+            margin-bottom: 15px;
+        }
+
+        .product button {
+            background-color: #fc0fc0;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .product button:hover {
+            background-color: #ff6fff;
+        }
+
+        .quantity-input {
+            width: 50px;
+            text-align: center;
+            margin-right: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        footer {
+            background-color: #de3163;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .cart {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+        }
+
+        .cart h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .cart-table th,
+        .cart-table td {
+            border: 1px solid #e5e7eb;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .cart-table th {
+            background-color: #f3f4f6;
+        }
+
+        .cart-total {
+            text-align: right;
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .discount-info {
+            background-color: #f1f5f9;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Toko yummie_yAy</h1>
+        <p>By: Dwi Aulia Gevira</p>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Selamat Datang di Toko yummie_yAy Kami</h2>
+        <p>Temukan berbagai produk menarik dengan harga terbaik!</p>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products">
+        <h3>Produk Kami</h3>
+        <div class="product-grid">
+            <div class="product">
+                <img src="jam tangan.jpg" alt="Jam Tangan">
+                <h4>Jam Tangan</h4>
+                <p>Jam tangan modern dengan desain elegan, cocok untuk melengkapi gaya Anda sehari-hari. Tahan air .</p>
+                <div class="product-actions">
+                    <input class="quantity-input" type="number" id="jam tangan-quantity" min="1" value="1">
+                    <button
+                        onclick="addToCart('Jam tangan', 100000, parseInt(document.getElementById('jam tangan-quantity').value))">Beli
+                        Sekarang</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="gelang.jpg" alt="Gelang">
+                <h4>Gelang Silver</h4>
+                <p>Gelang silver dengan bahan berkualitas tinggi, dirancang untuk menambah kesan mewah dan berkelas
+                    pada penampilan Anda.</p>
+                <div class="product-actions">
+                    <input class="quantity-input" type="number" id="gelang-quantity" min="1" value="1">
+                    <button
+                        onclick="addToCart('Gelang', 150000, parseInt(document.getElementById('gelang-quantity').value))">Beli
+                        Sekarang</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="parfum.jpg" alt="Parfum">
+                <h4>Parfum</h4>
+                <p>Parfum dengan aroma mewah yang tahan lama, memberikan kesegaran sepanjang hari. </p>
+                <div class="product-actions">
+                    <input class="quantity-input" type="number" id="parfum-quantity" min="1" value="1">
+                    <button
+                        onclick="addToCart('Parfum', 200000, parseInt(document.getElementById('parfum-quantity').value))">Beli
+                        Sekarang</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pesanan Section -->
+    <section class="cart">
+        <h3>Hasil Pembelian</h3>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Produk</th>
+                    <th>Harga</th>
+                    <th>Jumlah</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Pesanan items will be dynamically added here -->
+            </tbody>
+        </table>
+        <div class="cart-total" id="cart-total">Total: Rp 0</div>
+        <div class="discount-info">
+            <p><strong>Diskon:</strong></p>
+            <ul>
+                <li>Belanja minimal 2 produk: Diskon 5%</li>
+                <li>Belanja minimal 5 produk: Diskon 35%</li>
+            </ul>
+            <p>Deskripsi diskon: Nikmati diskon spesial kami! Diskon 5% berlaku untuk belanja minimal 2 produk, dan
+                diskon 35% untuk belanja minimal 5 produk.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <span id="year"></span> Toko yummie_yAy Semua Berhak Belanja</p>
+    </footer>
+
+    <script>
+        const cart = [];
+
+        function addToCart(name, price, quantity) {
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cart.push({ name, price, quantity });
+            }
+            updateCart();
+            alert(`${quantity} ${name} telah ditambahkan ke Hasil Pembelian.`);
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = '';
+            let total = 0;
+            let totalQuantity = 0;
+
+            cart.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>Rp ${item.price.toLocaleString()}</td>
+                    <td>${item.quantity}</td>
+                    <td>Rp ${(item.price * item.quantity).toLocaleString()}</td>
+                `;
+                cartItems.appendChild(row);
+                total += item.price * item.quantity;
+                totalQuantity += item.quantity;
+            });
+
+            let discount = 0;
+            if (totalQuantity >= 5) {
+                discount = total * 0.35;
+            } else if (totalQuantity >= 2) {
+                discount = total * 0.05;
+            }
+
+            total -= discount;
+
+            document.getElementById('cart-total').textContent = `Total: Rp ${total.toLocaleString()} (Diskon: Rp ${discount.toLocaleString()})`;
+        }
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
